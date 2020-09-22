@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* main */
+        @font-face { font-family: 'NanumBarunGothic'; font-style: normal; font-weight: 400; src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot'); src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype'); }
+        @font-face { font-family: 'NEXON Lv1 Gothic OTF Light'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff'); font-weight: normal; font-style: normal; }
+        html{
+            /* width: 2500px; */
+            /* border : 1px solid red; */
+        }
+        h1{
+            font-weight: bold;
+            font-family: Arial;
+            font-size: 3em; 
+            color: #111;
+        }
+
+        #left {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 250px;
+            height: 2400px;
+            /* border: 1px solid black; */
+            background-color: #444;
+            text-align: center;
+            z-index: 10;
+        }
+
+        #left .info {
+            margin-left: 56px;
+            text-align: left;
+            font-variant: small-caps;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .accomenu {
+            /* margin-top: 30px; */
+            margin-left: 10px;
+            width : 260px;
+            padding-right : 25px;
+        }
+
+        .btn {
+            box-shadow: 3px 3px 0;
+        }
+
+        .b {
+            margin-top: 30px;
+            float: left;
+        }
+
+        .b::after {
+            content: " ";
+            clear: both;
+            display: block;
+        }
+
+        /* #btn1 {
+            margin-left: 50px;
+            margin-right: 20px;
+        } */
+
+        #topmenu {
+            /* border: 1px solid blue; */
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            float: right;
+            align-content: right;
+            /* z-index: -1; */
+            /* background-color: #BBDED7; */
+            /* opacity: .3; */
+            
+        }
+        #topmenu .search {
+            /* border: 1px solid black; */
+            width: 250px;
+            margin-top: 10px;
+            float: right;
+           
+        }
+        #topmenu .home {
+            /* border: 1px solid black; */
+            width: 50px;
+            float: right;
+            margin-top: 7px;
+            cursor: pointer;
+            color: #444
+        }
+
+        #calendar {
+           margin-top: 70px;
+           margin-left: -20px;
+        }
+
+        #cal {
+            position: relative;
+            top: 15px;
+            left: 5px;
+        }
+
+        #bottom {
+            position: absolute;
+            top: 2000px;
+        }
+
+        #sw {
+            margin-top: 850px;
+            cursor: pointer;
+        }
+
+        /* 새로 추가한 코드 */
+        /* 관리자 메인메뉴 위에 커서 두면 커서가 포인터로 변환하게만듦 */
+        .accomenu tr td:hover {
+            cursor : pointer;
+        }
+
+         #movetop {
+            width: 40px;
+            height: 40px;
+            background-color: #777;
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            text-align: center;
+            padding-top: 3px;
+        }
+        #movetop:hover {
+            background-color: #444;
+            cursor : pointer;
+        }
+
+        #movetop {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        body{
+            font-family: 'NanumBarunGothic';
+        }
+
+        /* 아코디언 메뉴 css */
+        .ui-state-active {
+            background-color: red;
+            background-image: url();
+        }
+        .ui-state-hover {
+            background-color: #444;
+            background-image: url();
+
+        }
+
+        .ui-accordion-header {
+            background: #444;
+            color: white;
+            text-align: left;
+            border: 0px;
+            font-family: 'NEXON Lv1 Gothic OTF Light';
+            /* font-weight: bolder; */
+            
+        }
+        .ui-accordion-content {
+            background: #444;
+            color: white;
+            text-align: left;
+            border: 0px;
+            font-family: 'NanumBarunGothic';
+        }
+        .ui-accordion-content div:hover {
+            background: #333;
+        }
+        .ui-widget-content a{
+            color: white;
+            text-decoration: none;
+        }
+        .ui-widget-content span {
+            font-size: 10px;
+        }
+        .ui-accordion .ui-accordion-header {
+            /* border: 0px; */
+            outline: none;
+          
+        }
+       
+        /* 고객 관리 */
+        #title {
+            /* text-align: center; */
+            margin-left: 280px;
+            margin-top: 50px;
+            width: 1500px;
+            border-bottom: 1px dashed black;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-family: Arial;
+            font-size: 3em;
+            color: #555;
+        }
+
+        body {
+            outline: none;
+        }
+
+        .search {
+            float: left;
+            width: 200px;
+        }
+
+        #sel1 {
+            width: 150px;
+            float: left;
+        }
+
+        #header {
+            width: 1000px;
+            margin-top: 10px;
+            background-color: gray;
+        }
+
+        #box {
+            margin: 70px auto;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+           background-color:#999999;
+           border-color: #eeeeee;
+       }
+        
+      .pagination > li > a, .pagination > li > span{
+          color: black;
+      }
+
+      th {
+            background-color:  #999;
+            /* color : white; */
+        }
+
+        #manipulate {
+            margin-left: 1100px;
+        }
+
+        .modified {
+            border : 0px;
+            border-radius: 5px;
+            background-color: #999;
+            outline: none;
+            font-weight: border;
+            color : rgb(220,220,220);
+            height : 35px;
+            font-weight: bold    
+        }
+        .modified:hover {
+            color : white;
+            /* background-color: #333; */
+
+        }
+
+        .input-group-addon:hover{
+            cursor: pointer;
+        }
+
+        tr td:nth-child(3):hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+/* 
+        #tbody1 > tr > td:nth-child(8){
+            text-align: left;
+            padding-left: 30px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- main -->
+   
+    <div id="left">
+        
+        <img src="../images/man.png" 
+            style="margin-top: 40px; width: 80px; border: 1px solid #333; border-radius:     50%; background-color: #999;">
+        <div class="info" style="color:white">
+            <span><br>Welcome,</span></br></span>
+            <span>Hong gil dong</span>
+        </div>
+        <!-- <div class="b">
+            <input style="font-weight: bold; background-color: #C27BA0; margin : 80px;" type="button" value="Logout" id="btn2"
+                class="btn">
+        </div> -->
+        <div id = "logout">
+            <input style="font-weight: bold; background-color: #999; margin-top : 30px; margin-bottom : 50px; color: #D5D5D5; width: 70px; height: 30px; outline: none;"
+                     type="button" value="Logout" id="btn2" class="btn">
+        </div>
+        <!-- 왼쪽 바 메뉴 -->
+        <div class="accomenu">
+            <h3>공연</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminShow.html"><span>▶</span> 공연 조회</a></div>
+            </div>
+            <h3>통계</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminViews.html"><span>▶</span> 방문자 통계</a></div>
+            </div>
+            <h3>정산 관리</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="salesManagement.html"><span>▶</span> 매출액 통계</a></div>
+            </div>
+            <h3>직원 정보</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminEmployee.html"><span>▶</span> 직원 조회</a></div>
+            </div>
+            <h3>이벤트</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="event.html"><span>▶</span> 이벤트 조회</a></div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="coupon.html"><span>▶</span> 쿠폰 조회</a></div>
+            </div>
+            <h3>1:1 문의</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminQuestion.html"><span>▶</span> 문의 조회</a></div>
+            </div>
+            <h3>공연 랭킹</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="Ranking.html"><span>▶</span> 랭킹 조회</a></div>
+            </div>
+            <h3>공지사항</h3>
+            <div>
+                <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminNtc(Fix).html"><span>▶</span> 공지사항 조회</a></div>
+            </div>
+            <h3>고객 정보</h3>
+            <div>
+            <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminCustomer.html"><span>▶</span> 고객 정보 조회</a></div>
+            </div>
+            <h3>업무 게시판</h3>
+            <div>
+                <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="adminWorking.html"><span>▶</span> 업무 게시판 조회</a></div>
+            </div>
+            <h3>Q&A 게시판</h3>
+            <div>
+                <div style="margin-left:-30px; padding-left: 30px; width: 231px; height: 25px;"><a href="hansiyeonBoard.html"><span>▶</span> Q&A 게시판 조회</a></div>
+            </div>  
+        </div>
+
+
+        <!-- container -->
+
+
+        
+        <!-- <div class="b">
+            <input style="font-weight: bold; background-color: #D5A6BD;" type="button" value="Login" id="btn1"
+                class="btn">
+        </div> -->
+
+        <div id="calendar">
+            <input style="width: 100px;" type="text" name="date" id="date" value="">
+            <label for="date"><span style="font-size: 2.5em; color:white" class="glyphicon glyphicon-calendar" id = "cal"></span></label>
+        </div>
+
+        <!-- 티켓 사이트 로고 바로가기 -->
+        <div style="margin-top: 20px; position: fixed; bottom: 30px; left: 70px;">
+            <img src="../images/title.png" id="tickethome" 
+                    style="cursor: pointer; height: 50px;">
+        </div>
+
+
+    </div>
+
+
+    <div id="topmenu">
+        <div class="home">
+            <span style="font-size: 2.5em;" class="glyphicon glyphicon-home" id = "homeLogo"></span>
+        </div>
+        <div class="search">
+            <div class="form-group">
+                <div class="input-group">
+                    <span style="border-radius: 30px; cursor: pointer;" class="input-group-addon" id="btnsearch"><i
+                            class="glyphicon glyphicon-search"></i></span>
+                    <input style="border-radius: 30px; width: 200px;" type="text" class="form-control"
+                        placeholder="검색어를 입력하세요.">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id = "fixedBtn">
+        <img src = "../images/switch_on.png" id="sw" name="sw"
+            style="width: 70px; position: fixed; bottom: 0px; right: 50px; margin-bottom : 45px;">
+
+        <!-- 제일 위로 돌아가기 -->
+        <div id="movetop" style = "position: fixed; bottom: 0px; right: 0px;margin-bottom : 63px;">↑</div>
+    </div>
+
+    <!-- 아래 회색 바닥 페이지 없앰 -->
+    <!-- <div id="bottom" style="width: 100%; height: 50px; background-color: #eeeeee;"> -->
+    </div>
+    
+
+
+
+
+
+</body>
+
+
+    <!-- 고객 관리 -->
+    <div id="title">
+        <h1>고객 관리 <small>> Home </small></h1>
+    </div>
+
+    <div style="margin-left: 870px;" id="header">
+        <select style="margin-left: 220px; width: 100px;" name="sel1" id="sel1" class="form-control">
+            <option value="name">이름</option>
+            <option value="tel">전화번호</option>
+            <option value="id">회원아이디</option>
+            <option value="ssn">주민번호</option>
+        </select>
+
+        <span style="margin-left: 20px;" class="search">
+            <span class="form-group">
+                <span style="width: 300px;" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+                </span>
+            </span>
+        </span>
+    </div>
+
+    <div id="box" style="margin-left: 300px;">
+        <table style="width: 930px; margin-left: 280px;" class="table  table-bordered table-striped table-condensed"
+            id="tbl">
+            <tbody id="tbody1">
+                <tr>
+                    <th style="text-align: center;"><input type="checkbox" name="cbAll"></th>
+                    <th style="width: 50px;">번호</th>
+                    <th style="width: 90px;">이름</th>
+                    <th style="width: 110px;">아이디</th>
+                    <th style="width: 160px;">주민번호</th>
+                    <th class="title" style="width: 150px;text-align: center;">전화번호</th>
+                    <th class="title" style="width: 120px;text-align: center;">비번</th>
+                    <th class="title" style="width: 250px;text-align: center;">주소</th>
+                </tr>
+            </tbody>
+        </table>
+        <div id="manipulate">
+            <button class="modified" id="makebtn"><i class="glyphicon glyphicon-plus"></i> 추가</button>
+            <button class = "modified" id = "delbtn"><i class="glyphicon glyphicon-trash"></i>삭제</button>
+        </div>
+    </div>
+    
+    <nav style=" margin-top: -70px; margin-left:830px; width: 500px;" class = "pagebar">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+          <li class = "active"><a href="#">7</a></li>
+          <li><a href="#">8</a></li>
+          <li><a href="#">9</a></li>
+          <li><a href="#">10</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+   
+    <script>
+    // main 
+    var date = document.getElementById("date");
+    var now = new Date();
+    var sw = document.images["sw"];
+
+    //날짜 자동 입력, 읽기만 가능 
+    date.value = now.getFullYear() + " / " + (now.getMonth()+1) + " / " + now.getDate();
+    if (date.value != null) {
+        date.readOnly = true;
+    }
+
+    // 캘린더
+        $("#date").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: now.getFullYear() + "-1-1",
+            maxDate: now.getFullYear() + "-12-" + "31"
+        });
+
+   
+
+    document.body.bgColor = "white";
+    
+
+
+    //스위치 
+    var swCount = 1;
+    $("#sw").click(function () {
+        console.log("클릭함");
+
+            if(swCount % 2 == 0) {
+                console.log("들어옴");
+                sw.src="../images/switch_on.png";
+                $("body").css("background-color","white");
+                $("#homeLogo").css("color","#333333");
+                $("#adminName").css("color","#333333")
+            } else {
+                sw.src="../images/switch_off.png";
+                $("body").css("background-color","#292A2D");
+                $("#homeLogo").css("color","white");
+                $("#adminName").css("color","white");
+
+            }
+            swCount++;
+    });
+
+    // $("#btn1").click(function(){
+    //     window.open("login.html","Login","width=300, height=300");
+    // });
+    
+    // 버튼을 클릭하면 로그아웃 창이 뜸
+    $("#btn2").click(function(){
+        if(confirm("로그아웃하시겠습니까?")){
+            console.log("로그아웃 되었습니다.");
+         }
+    });
+
+    $(".accomenu").accordion({
+        collapsible: true,
+        active: false
+    });
+
+    //홈버튼 링크
+    $("#homeLogo").click(function() {
+        location.href = "adminMain.html";
+    });
+
+    //상단 메뉴 고정
+    $(document).scroll(function() {
+        //메뉴가 시야에서 사라지는 순간 -> 메뉴를 붙박이로 만들기
+            if ($(document).scrollTop() > $("#topmenu").position().top) {
+                $("#topmenu").css({
+                    width: "100%",
+                    position: "fixed",
+                    top: "0px",
+                    bottom: "",
+                    zIndex: "1"
+                });
+
+            };
+
+        //상단 헤더(top)이 눈에 보일때 쯤
+        if ($(document).scrollTop() <= $("#topmenu").position().top) {
+            $("#topmenu").css({
+                position: "absolute",
+                top: "0px",
+                bottom: ""
+            });             
+        }
+    });
+
+
+    //logout 버튼 관련 -> 커서 가져다 대면 더 밝아짐    
+    $("#btn2").mouseenter(function(){
+        // $("#btn2").css("background-color","cornflowerblue");
+        $("#btn2").css("color","white");
+    });
+    $("#btn2").mouseleave(function(){
+        // $("#btn2").css("background-color","#C27BA0");
+        $("#btn2").css("color","#D5D5D5");
+    })
+
+    //티켓 홈
+    $("#tickethome").click(function() {
+        window.open("../main.html","At-Ticket");
+    });
+
+    
+    //상단으로 돌아가기 -> 스무스 하게 올림
+    $("#movetop").click(function(){
+        	
+        $("html,body").animate({
+			scrollTop: 0
+		}, 700);
+        
+    });
+
+    //검색
+    $("#btnsearch").click(function(){
+        // 검색어 넘기기
+        window.location.href="adminSearch.html";
+    });
+
+
+    //메뉴 링크
+    $("#showmanage").click(function(){  window.location.href="adminShow.html"; });
+    $("#emplomanage").click(function(){  window.location.href="adminEmployee.html"; });
+    
+    // 고객 관리
+        var index = 1;
+        var list = [];
+        var count = 10;
+        var tbl = document.getElementById("tbl");
+        var tbody1 = document.getElementById("tbody1");
+        var sel1 = document.getElementById("sel1");
+        var tr = document.getElementsByTagName("tr");
+        var cbAll = document.all.cbAll; // 일괄 체크박스
+        var cb = document.getElementsByClassName("cb");
+        var td = document.getElementsByTagName("td");
+      
+        // select에서 바뀌면 검색창에 focus가 가도록 한 구문
+       $("#sel1").change(function(){
+            $(".form-control").focus();
+        });
+      
+        // 테이블 만드는 구문 
+        // box.appendChild(table);
+        if (count != 0) {
+            index = 1;
+
+            for (var i = 0; i < count; i++) {
+        
+                list = ['<input type="checkbox" class="cb">',index, "홍길동", "hongil", "932921-1859144","010-1234-5555","cheryy1234","서울시 강남구 역삼동"];
+                tr = document.createElement("tr");
+               
+                for (var j = 0; j < 8; j++) {
+                    var td = document.createElement("td");
+                    td.innerHTML = list[j];
+                    tr.appendChild(td);
+                }
+                index++;
+                tbody1.appendChild(tr);
+
+                tr.children[2].onclick = function () {
+                    console.log(1);
+                    location.href = "customerInfo.html"
+                };
+            }
+
+        } else {
+
+            tr = document.createElement("tr");
+            tbody1.innerText = "일치하는 데이터가 없습니다.";
+
+        }
+
+        for (var i = 2; i < tr.length; i++) {
+            tr[i].children[2].onclick = function () {
+                // location.href="hansiyeoncontent.html";
+            };
+        }
+
+        cbAll.onchange = function(){
+            for(var i=0;i<cb.length;i++){
+                    cb[i].checked = cbAll.checked;
+                }
+        }
+
+        $("#makebtn").click(function () {
+            // if ($('input').is(':checked') == true) {
+            //     location.href = "customerInfo.html";
+            // } else {
+            //     alert("하나 이상을 체크하시오.");
+            // }
+            window.open("customerInfoinsert.html","추가","width=880,height=450")
+        });
+        
+        //삭제
+        $("#delbtn").click(function () {
+                if ($('input').is(':checked') == true) {
+                    if (confirm("정말로 삭제하시겠습니까?")) {
+                        $("input[name=checkRow]:checked").each(function () {
+                            var tr_value = $(this).val();
+                            var tr = $("tr[value='" + tr_value + "']");
+                            tr.remove();
+                        });
+                    }
+                } else {
+                    alert("하나 이상을 체크하시오.");
+                }
+
+            });
+            
+        // for (var i = 1; i < tr.length; i++) {
+        //     tr[i].children[2].onclick = function () {
+        //         console.log(1);
+        //         location.href = "customerInfo.html"
+        //     };
+        // }
+
+        
+    </script>
+</body>
+
+</html>
