@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <script src="js/jquery-1.12.4.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/Backstretch.js"></script>
+
+        <!-- font-family: 'Noto Sans KR', sans-serif; -->
+        <style>
+
+            * {
+                outline: none;
+            }
+            body {
+                margin: 0 auto;
+            }
+            h1 {
+                font-family: "Malgun Gothic";
+                font-size: 2em;
+                margin: 30px 0;
+            }
+            #main {
+                width: 100%;
+            }
+            #loginbar {
+                width: 100%;
+                height: 30px;
+                border-bottom: 1px solid #DDD;
+            }
+            #loginbar div {
+                width: 1000px;
+                margin: 0 auto;
+            }
+            #login {
+                float: right;
+                font-size: 13px;
+                transform: translateY(7px);
+                color: #333;
+            }
+            #top {
+                /* border: 1px solid black; */
+                width: 100%;
+                height: 450px;
+                margin: 0 auto;
+                background-image: url("./images/bg6.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+            #middle1,
+            #middle2 {
+                /* border: 1px solid black; */
+                width: 1200px;
+                margin: 0 auto;
+            }
+            #bottom {
+                /* border: 1px solid black; */
+                min-width: 1600px;
+                height: 250px;
+                background-color: #eee;
+            }
+            #bottom > div {
+                float: left;
+                position: relative;
+                left: 12%;
+                top: 22%;
+            }
+            #bottom .txt {
+                margin-left: 30px;
+                line-height: 1.1em;
+                color: #666;
+                top: 28%;
+            }
+            #bottom .txt .black {
+                color: black;
+            }
+            #bottom #service {
+                margin-left: 250px;
+                top: 18%;
+            }
+            #bottom #service p:first-child {
+                border-bottom: 1px solid #BBB;
+                padding: 0 0 5px 20px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            #bottom #service p > span {
+                color: #444;
+                font-size: 1.3em;
+            }
+            #bottom #service p:nth-child(2) {
+                text-align: center;
+                font-size: 3em;
+                padding-left: 10px;
+            }
+            #bottom #service p {
+                margin-bottom: -2px;
+                padding-left: 20px;
+            }
+            #bottom img {
+                background-size: contain;
+                width: 200px;
+            }
+            #topsearch {
+                background-color: transparent;
+                width: 1000px;
+                height: 80px;
+                color: black;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+                margin: 5px auto;
+                z-index: 999 !important;
+            }
+            #topleft {
+                /* border: 1px solid white; */
+                width: 100px;
+                height: 65px;
+                background-image: url("./images//cherry.jpg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                position: relative;
+                left: 10px;
+                top: 10px;
+                float: left;
+                cursor: pointer;
+            }
+            #search {
+                border: 0;
+                background-color: transparent;
+                outline: none;
+                color: black;
+                font-weight: normal;
+                text-align: center;
+                font-size: 14px;
+                padding: 10px;
+                width: 300px;
+            }
+            .img {
+                width: 230px;
+                height: 330px;
+                /* border: 1px solid black; */
+                display: inline-block;
+                margin: 10px 5px 0 5px;
+                cursor: pointer;
+            }
+            .open {
+                width: 180px;
+                height: 252px;
+            }
+            #bannerimg {
+                /* border: 1px solid black; */
+                height: 400px;
+                background-image: url("http://ticketimage.interpark.com/TCMS4/Main/202009/MainVisual_5dcedf78-5a4d-441f-82ed-26ff71f228ad.jpg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                margin-top: 20px;
+            }
+            #middle1 input,
+            #middle2 input {
+                outline: none;
+            }
+
+            #bigimg {
+                background-image: url("./images/cherry.jpg");
+                background-position: center center;
+                background-color: black;
+            }
+
+            .opne1 {
+                background-image: url("./images/notice1.jpg");
+                background-size: contain;
+            }
+            .opne2 {
+                background-image: url("./images/notice2.jpg");
+                background-size: contain;
+            }
+            .opne3 {
+                background-image: url("./images/notice3.jpg");
+                background-size: contain;
+            }
+            .opne4 {
+                background-image: url("./images/notice4.jpg");
+                background-size: contain;
+            }
+            .opne5 {
+                background-image: url("./images/noticeimage.jpg");
+                background-size: contain;
+            }
+            .musicimg1 {
+                background-image: url("./images/music5.jpeg");
+                background-size: contain;
+            }
+            .musicimg2 {
+                background-image: url("./images/music8.jpeg");
+                background-size: contain;
+            }
+            .musicimg3 {
+                background-image: url("./images/music11.jpeg");
+                background-size: contain;
+            }
+            .musicimg4 {
+                background-image: url("./images/music12.jpeg");
+                background-size: contain;
+            }
+            .consertimg1 {
+                background-image: url("./images/consert5.jpeg");
+                background-size: contain;
+            }
+            .consertimg2 {
+                background-image: url("./images/consert7.jpeg");
+                background-size: contain;
+            }
+            .consertimg3 {
+                background-image: url("./images/consert10.jpeg");
+                background-size: contain;
+            }
+            .consertimg4 {
+                background-image: url("./images/consert12.jpeg");
+                background-size: contain;
+            }
+            .dpimg1 {
+                background-image: url("./images/Exhibition4.jpeg");
+                background-size: contain;
+            }
+            .dpimg2 {
+                background-image: url("./images/Exhibition6.jpeg");
+                background-size: contain;
+            }
+            .dpimg3 {
+                background-image: url("./images/Exhibition9.jpeg");
+                background-size: contain;
+            }
+            .dpimg4 {
+                background-image: url("./images/Exhibition7.jpeg");
+                background-size: contain;
+            }
+
+            #tblpic {
+                width: 270px;
+                border-spacing: 10px;
+                border-collapse: separate;
+                position: relative;
+                top: 10px;
+                left: 1110px;
+                display: inline-block;
+            }
+
+            #tblpic td {
+                border: 1px solid #EEE;
+                width: 75px;
+                height: 75px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+            }
+
+            #video {
+                width: 700px;
+                height: 350px;
+            }
+            #play {
+                width: 500px;
+                height: 350px;
+                float: left;
+            }
+            #playlist {
+                width: 200px;
+                height: 350px;
+                float: right;
+            }
+            #playlist ul {
+                padding: 0;
+            }
+            #playlist ul li {
+                border-bottom: 1px solid #777;
+                font-size: 14px;
+                font-family: 'font-family: "Malgun Gothic";';
+                list-style: none;
+                width: 200px;
+                height: 50px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                padding: 15px 0 15px 15px;
+                text-align: left;
+                cursor: pointer;
+                background-color: #505769;
+                color: white;
+                font-size: bold;
+            }
+
+            #mainsearch {
+                padding-top: 30px;
+            }
+
+            #searchwrap {
+                border: 1px solid #E25147;
+                width: 350px;
+                margin: 0 auto;
+            }
+            #topmenu {
+                width: 100%;
+                height: 40px;
+                background: linear-gradient(90deg, #E25147 65.9%, #41495C 34.1%);
+                margin-top: 15px;
+            }
+            #topmenu > ul {
+                width: 1000px;
+                height: 100%;
+                margin: 0 auto;
+            }
+            #topmenu > ul li {
+                list-style-type: none;
+                float: left;
+                color: white;
+                padding: 10px 14px;
+                cursor: pointer;
+            }
+            #topmenu > ul li.bar {
+                padding: 10px 0px;
+                width: 0px;
+                color: #D43B3A;
+            }
+            .black {
+                color : #32394B;
+            }
+            .submenu {
+                width: 723px;
+                height: 380px;
+                background-color: white;
+                position: absolute;
+                left: 373px;
+                top: 170px;
+                display: none;
+                z-index: 5;
+            }
+            .depth {
+                float: left;
+                width: 35%;
+                height: 380px;
+                border: 1px solid #DDD;
+            }
+            .depth_title {
+                margin: 20px 20px 0px 20px;
+                padding-bottom: 10px;
+                font-size: 16px;
+                color: #E25147;
+                font-weight: bold;
+                border-bottom: 1px solid #E25147;
+            }
+            .depth_title i {
+                font-size: 9px;
+                float: right;
+                position: relative;
+                top: 5px;
+            }
+            .depth_list {
+                margin: 20px;
+                height: 200px;
+                list-style-type: none;
+                padding: 0;
+                border-bottom: 2px solid #DDD;
+            }
+            .depth_notice {
+                margin: 20px;
+            }
+            .depth a, .depth p {
+                font-size: 12px;
+                text-decoration: none;
+            }
+            .depth_list li {
+                margin-bottom: 7px;
+            }
+            .depth_list li a {
+                margin-right: 27px;
+            }
+            .suggest {
+                float: right;
+                width: 65%;
+                height: 150px;
+                border-right: 1px solid #DDD;
+                padding: 20px 10px 0px 20px;
+            }
+            .suggest_title {
+                font-weight: bold;
+                line-height: 1em;
+            }
+            .suggest_list {
+                list-style-type: none;
+                padding: 0;
+                margin-left: 60px;
+                transform: translateY(-18px);
+            }
+            .suggest_list li {
+                float: left;
+                margin-right: 10px;
+            }
+            .suggest_img img {
+                width: 80px;
+                height: 100px;
+                border: 1px solid #DDD;
+            }
+            .subbanner {
+                float: right;
+                width: 65%;
+                height: 230px;
+                border: 1px solid #DDD;
+                border-left: 0;
+            }
+
+            .submenu.type2 {
+                margin-left: 253px;
+            }
+            .submenu.type2 .depth {
+                float: right;
+                border: 0;
+                border-right: 1px solid #DDD;
+            }
+            .submenu.type2 .depth_list {
+                border-bottom: 0;
+            }
+            .submenu.type2 .depth_list li a:nth-child(2) {
+                padding-left: 40px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <!--------------------------- 화면 상단부 --------------------------->
+            <div id="loginbar">
+                <div>
+                    <a href="#!" id="login">로그인</a>
+                </div>
+            </div>
+            <div id="topsearch">
+                <!-- 상단메뉴 -->
+                <a href="main copy.html" id="topleft"></a>
+                <div id="mainsearch">
+                    <div id="searchwrap">
+                        <input
+                            type="text"
+                            value=""
+                            id="search"
+                            autocomplete="off"
+                        />
+                        <label
+                            for="search"
+                            class="glyphicon glyphicon-search"
+                            style="font-size: 14px; cursor: pointer; color: #E25147;"
+                        ></label>
+                    </div>
+                </div>
+            </div>
+            <div id="topmenu">
+                <ul>
+                    <li style="background-color: #D53B3B;">
+                    <i class="glyphicon glyphicon-align-justify"></i>
+                    </li>
+                    <li class="genre" data-genre="musical">뮤지컬</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="concert">콘서트</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="play">연극</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="classic">클래식/무용</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="sports">스포츠</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="leisure">레저</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="exhibition">전시/행사</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="kid">아동/가족</li>
+                    <li class="bar"><span>l</span></li>
+                    <li class="genre" data-genre="toping">TOPING</li>
+                    <li class="bar"><span class="black">l</span></li>
+                    <li class="genre" data-genre="ranking"><i class="glyphicon glyphicon-bookmark" style="font-size: 12px;"></i>랭킹</li>
+                    <li class="bar"><span class="black">l</span></li>
+                    <li class="genre" data-genre="region"><i class="glyphicon glyphicon-map-marker" style="font-size: 12px;"></i>지역</li>
+                    <li class="bar"><span class="black">l</span></li>
+                    <li class="genre" data-genre="stadium"><i class="glyphicon glyphicon-map-marker" style="font-size: 12px;"></i>공연장</li>
+                </ul>
+                <div class="submenu" id="musical">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                뮤지컬<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">오리지널/내한공연</a>
+                                    <a href="#!">라이선스</a>
+                                </li>
+                                <li>
+                                    <a href="#!">창작뮤지컬</a>
+                                    <a href="#!">넌버벌 퍼포먼스</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>뮤지컬</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005030_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20004934_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006380_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007209_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewMusical_a333edff-71f6-4a73-a83c-4fd691d00013.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="concert">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                콘서트<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">발라드</a>
+                                    <a href="#!">내한공연</a>
+                                </li>
+                                <li>
+                                    <a href="#!">락/메탈</a>
+                                    <a href="#!">페스티벌</a>
+                                </li>
+                                <li>
+                                    <a href="#!">랩/힙합</a>
+                                    <a href="#!">팬클럽</a>
+                                </li>
+                                <li>
+                                    <a href="#!">재즈/소울</a>
+                                    <a href="#!">인디</a>
+                                </li>
+                                <li>
+                                    <a href="#!">디너쇼</a>
+                                    <a href="#!">토크/강연</a>
+                                </li>
+                                <li>
+                                    <a href="#!">포크/트로트</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>콘서트</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007444_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20003069_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006461_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007355_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewConcert_8f6dc8f5-b0ff-4e22-a0d1-89e7ce580cdf.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="play" style="width: 723px; height: 380px;">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                연극<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">연극</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>연극</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006931_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006363_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007245_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/19/19018520_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewDrama_058a04e9-b5f8-4364-ba46-cd570eb01583.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="classic">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                클래식/무용<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">클래식</a>
+                                </li>
+                                <li>
+                                    <a href="#!">오페라</a>
+                                </li>
+                                <li>
+                                    <a href="#!">발레/무용</a>
+                                </li>
+                                <li>
+                                    <a href="#!">국악</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>클래식/무용</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006391_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007418_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007528_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007355_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewClassic_b695b186-d672-4f7a-a088-3d867acfc2d7.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="sports">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                스포츠<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">야구</a>
+                                </li>
+                                <li>
+                                    <a href="#!">축구</a>
+                                </li>
+                                <li>
+                                    <a href="#!">농구</a>
+                                </li>
+                                <li>
+                                    <a href="#!">배구</a>
+                                </li>
+                                <li>
+                                    <a href="#!">E스포츠</a>
+                                </li>
+                                <li>
+                                    <a href="#!">MD샵</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>스포츠</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20004818_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20001868_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005951_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20002440_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewSports_ac51c094-b96a-4d07-adf3-33fbd3781873.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="leisure">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                레저<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">제주도</a>
+                                </li>
+                                <li>
+                                    <a href="#!">테마/놀이/아쿠아</a>
+                                </li>
+                                <li>
+                                    <a href="#!">워터파크/스파</a>
+                                </li>
+                                <li>
+                                    <a href="#!">스키/눈썰매</a>
+                                </li>
+                                <li>
+                                    <a href="#!">캠핑/휴양림</a>
+                                </li>
+                                <li>
+                                    <a href="#!">선박/크루즈</a>
+                                </li>
+                                <li>
+                                    <a href="#!">골프</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>레저</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007282_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007288_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007329_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007632_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202005/GnbMenuNew_GnbMenuNewLeisure_bf655c14-f3a1-4599-80f8-9a971ab5f722.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="exhibition">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                전시/행사<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">전시</a>
+                                </li>
+                                <li>
+                                    <a href="#!">뮤지엄</a>
+                                </li>
+                                <li>
+                                    <a href="#!">아동체험전</a>
+                                </li>
+                                <li>
+                                    <a href="#!">행사/축제</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>전시/행사</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005062_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005144_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007609_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005149_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewDisplay_085c5935-8210-4024-9166-d18856b3526a.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="kid">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                아동/가족<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">뮤지컬</a>
+                                </li>
+                                <li>
+                                    <a href="#!">연극</a>
+                                </li>
+                                <li>
+                                    <a href="#!">클래식/무용</a>
+                                </li>
+                                <li>
+                                    <a href="#!">전시/행사</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">티켓오픈 공지</a>
+                                </p>
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>아동/가족</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006669_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005686_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006678_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20002806_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewChild_9cf25751-95fb-4f1d-aaf9-b09cea0bb4ff.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu" id="toping">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                멤버십 토핑<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">멤버십소개</a>
+                                </li>
+                                <li>
+                                    <a href="#!">가입하기</a>
+                                </li>
+                                <li>
+                                    <a href="#!">나의토핑</a>
+                                </li>
+                                <li>
+                                    <a href="#!">할인공연</a>
+                                </li>
+                                <li>
+                                    <a href="#!">선예매</a>
+                                </li>
+                                <li>
+                                    <a href="#!">클럽</a>
+                                </li>
+                                <li>
+                                    <a href="#!">토핑Day</a>
+                                </li>
+                            </ul>
+                            <div class="depth_notice">
+                                <p>
+                                    <a href="#!">지역별/날짜별 예매</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>Toping</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005861_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006426_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006092_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007328_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewTiki_fccec5e0-675b-4ae4-8bbd-d6314d380614.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu type2" id="ranking">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                랭킹<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">뮤지컬</a>
+                                </li>
+                                <li>
+                                    <a href="#!">콘서트</a>
+                                </li>
+                                <li>
+                                    <a href="#!">클래식/무용</a>
+                                </li>
+                                <li>
+                                    <a href="#!">아동/가족</a>
+                                </li>
+                                <li>
+                                    <a href="#!">전시/행사</a>
+                                </li>
+                                <li>
+                                    <a href="#!">스포츠</a>
+                                </li>
+                                <li>
+                                    <a href="#!">레저</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>랭킹</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20005095_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20002806_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006092_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006380_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewRanking_6554ad43-b6cf-49a6-b1e1-0032ff2b63b1.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu type2" id="region">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                지역<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <p>지역별 주요공연</p>
+                                </li>
+                                <li>
+                                    <a href="#!">서울</a>
+                                    <a href="#!">경기</a>
+                                </li>
+                                <li>
+                                    <a href="#!">인천</a>
+                                    <a href="#!">강원</a>
+                                </li>
+                                <li>
+                                    <a href="#!">충북</a>
+                                    <a href="#!">충남</a>
+                                </li>
+                                <li>
+                                    <a href="#!">대전</a>
+                                    <a href="#!">경북</a>
+                                </li>
+                                <li>
+                                    <a href="#!">경남</a>
+                                    <a href="#!">대구</a>
+                                </li>
+                                <li>
+                                    <a href="#!">울산</a>
+                                    <a href="#!">부산</a>
+                                </li>
+                                <li>
+                                    <a href="#!">전북</a>
+                                    <a href="#!">전남</a>
+                                </li>
+                                <li>
+                                    <a href="#!">광주</a>
+                                    <a href="#!">제주</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>지역</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20003641_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20001783_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20007011_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006851_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewRegion_1f66db6f-8a7a-4157-95ab-dbe1d594f702.jpg');"></div>
+                    </div>
+                </div>
+                <div class="submenu type2" id="stadium">
+                    <div class="subbody">
+                        <div class="depth">
+                            <div class="depth_title">
+                                공연장<i class="glyphicon glyphicon-menu-right"></i>
+                            </div>
+                            <ul class="depth_list">
+                                <li>
+                                    <a href="#!">세종문화회관</a>
+                                </li>
+                                <li>
+                                    <a href="#!">예술의전당</a>
+                                </li>
+                                <li>
+                                    <a href="#!">충무아트센터</a>
+                                </li>
+                                <li>
+                                    <a href="#!">성남아트센터</a>
+                                </li>
+                                <li>
+                                    <a href="#!">경기아트센터</a>
+                                </li>
+                                <li>
+                                    <a href="#!">안산문화예술의전당</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="suggest">
+                            <div class="suggest_title">
+                                <p>공연장</p>
+                                <p>추천</p>
+                            </div>
+                            <ul class="suggest_list">
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20004440_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/P0/P0002352_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006375_p_s.jpg">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggest_img">
+                                        <img src="http://ticketimage.interpark.com/rz/image/play/goods/poster/20/20006421_p_s.jpg">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewTheater_cb5be7af-06d8-4d2c-bf48-4abd7edf1bf8.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="top">
+                <div>
+                    <table id="tblpic">
+                        <tr>
+                            <td style="background-image: url('./images/bg4.jpg');"></td>
+                            <td style="background-image: url('./images/bg5.jpg');"></td>
+                            <td style="background-image: url('./images/bg6.jpg');"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-image: url('./images/bg7.jpg');"></td>
+                            <td style="background-image: url('./images/bg8.jpg');"></td>
+                            <td style="background-image: url('./images/bg9.jpg');"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-image: url('./images/bg1.jpg');"></td>
+                            <td style="background-image: url('./images/bg2.jpg');"></td>
+                            <td style="background-image: url('./images/bg3.jpg');"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-image: url('./images/bg4.jpg');"></td>
+                            <td style="background-image: url('./images/bg5.jpg');"></td>
+                            <td style="background-image: url('./images/bg6.jpg');"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-image: url('./images/bg7.jpg');"></td>
+                            <td style="background-image: url('./images/bg8.jpg');"></td>
+                            <td style="background-image: url('./images/bg9.jpg');"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-------------------------------- 내용부분 -------------------------------->
+            <div id="middle1">
+                <br />
+                <br />
+                <!-- 최신, 인기 공연 목록(순위별) -->
+                <div style="text-align: center;">
+                    <div style="padding: 10px 0;">
+                        <div
+                            class="img"
+                            id="bigimg"
+                            style="
+                                width: 250px;
+                                height: 350px;
+                                display: inline-block;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            "
+                            value="temp"
+                        >
+                        </div>
+                        <div id="video" style="display: inline-block;">
+                            <div id="play">
+                                <iframe width="500" height="350" id="iframe" src="https://www.youtube.com/embed/1HMqPxsktRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div id="playlist">
+                                <ul>
+                                    <li data-url="https://www.youtube.com/embed/C761c9E9ztc">컴백스테이지</li>
+                                    <li data-url="https://www.youtube.com/embed/CRNUfgxESRM">뮤지컬 <고스트></li>
+                                    <li data-url="https://www.youtube.com/embed/838xTYPum5o">팀랩: 라이프(teamLab: LIFE)</li>
+                                    <li data-url="https://www.youtube.com/embed/93t_shG8CE0">유미의 세포들 특별전</li>
+                                    <li data-url="https://www.youtube.com/embed/1HMqPxsktRg">퓰리처상 사진전</li>
+                                    <li data-url="https://www.youtube.com/embed/5HQ2SsWER3M">퀘이 형제: 도미토리움으로의 초대</li>
+                                    <li data-url="https://www.youtube.com/embed/3t9pWWTWJLs">빅 아이즈 (BIG EYES)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <!-- 오픈 예정 티켓 목록 -->
+                <div style="text-align: center;">
+                    <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
+                        <span style="background: #fff; padding: 0 10px;">TICKET OPEN</span>
+                    </h1>
+                    <div>
+                        <div class="img opne1 open" value="temp7"></div>
+                        <div class="img opne2 open" value="temp8"></div>
+                        <div class="img opne3 open" value="temp9"></div>
+                        <div class="img opne4 open" value="temp10"></div>
+                        <div class="img opne5 open" value="temp11"> </div>
+                    </div>
+                    <!-- 티켓오픈 더보기 버튼 -->
+                    <input
+                        type="button"
+                        value="티켓오픈 더보기"
+                        class="btn btn-default"
+                        id="btnticket"
+                        style="margin-top: 20px;"
+                    />
+                </div>
+                <hr />
+            </div>
+            <!-- 배너 이미지 -->
+            <div id="banner">
+                <div id="bannerimg"></div>
+            </div>
+            <div id="middle2">
+                <hr />
+                <!-- 뮤지컬, 연극 목록 -->
+                <div style="text-align: center;">
+                    <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
+                        <span style="background: #fff; padding: 0 10px;">CONCERT</span>
+                    </h1>
+                    <div>
+                        <div class="img musicimg1" value="temp15"></div>
+                        <div class="img musicimg2" value="temp16"></div>
+                        <div class="img musicimg3" value="temp17"></div>
+                        <div class="img musicimg4" value="temp18"></div>
+                    </div>
+                </div>
+                <hr />
+                <!-- 콘서트, 클래식 목록 -->
+                <div style="text-align: center;">
+                    <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
+                        <span style="background: #fff; padding: 0 10px;">PLAY & CLASSIC</span>
+                    </h1>
+                    <div>
+                        <div class="img consertimg1" value="temp21"></div>
+                        <div class="img consertimg2" value="temp22"></div>
+                        <div class="img consertimg3" value="temp23"></div>
+                        <div class="img consertimg4" value="temp24"></div>
+                    </div>
+                </div>
+                <hr />
+                <!-- 전시 목록 -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
+                        <span style="background: #fff; padding: 0 10px;">EXHIBITION & THEATER</span>
+                    </h1>
+                    <div>
+                        <div class="img dpimg1" value="temp27"></div>
+                        <div class="img dpimg2" value="temp28"></div>
+                        <div class="img dpimg3" value="temp29"></div>
+                        <div class="img dpimg4" value="temp30"></div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <!-------------------------------- 화면 하단부 -------------------------------->
+            <div id="bottom">
+                <div>
+                    <!-- 회사 마크 -->
+                    <img src="./images/cherry.jpg"/>
+                </div>
+                <div class="txt">
+                    <p class="black">At-Ticket (주)</p>
+                    <p>서울시 강남구 역삼동 한독빌딩 8층 대표: 한시연 | 개인정보보호책임자: 한시연</p>
+                    <p>it1234@atticket.com 사업자등록번호 229-81-37000</p>
+                    <p class="black">Copyright &copy; At-Tickey Corp. All Rights Reserved.</p>
+                </div>
+                <div id="service">
+                    <p><span>☎</span> 고객센터 전화상담</p>
+                    <p>1544-6399</p>
+                    <p>평일 09:00 ~ 18:00</p>
+                    <p>토요일 09:00 ~ 17:00</p>
+                    <p>일요일 공휴일 휴무</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            //이미지 클릭시 이동
+            $(".img").click(function () {
+                location.href = "#!";
+            });
+
+            $("#tblpic td").click(function() {
+                console.log($(this).css("background-image"));
+                $("#tblpic td").css("border", "1px solid #EEE");
+                $("#top").css("background-image", $(this).css("background-image"));
+                $(this).css("border", "3px solid tomato");
+            });
+
+            $("#playlist ul li").mouseover(function() {
+                $("#playlist ul li").css("background-color", "#505769").css("color", "white");
+                $(this).css("background-color", "#596071").css("color", "#85BBF2");
+            });
+
+            $("#playlist ul li").click(function() {
+                //console.log($(this).data("url"));
+                $("#iframe").attr("src", $(this).data("url"));
+            });
+
+            $(".genre").mouseover(function() {
+                console.log($(this).data("genre"));
+                $(".submenu").css("display", "none");
+                $("#" + $(this).data("genre")).css("display", "block");
+            });
+            $(".genre").mouseout(function() {
+                $(".submenu").css("display", "none");
+            });
+
+            $(".submenu").mouseover(function() {
+                $(this).css("display", "block");
+            });
+            $(".submenu").mouseout(function() {
+                $(".submenu").css("display", "none");
+            });
+
+        </script>
+    </body>
+</html>
