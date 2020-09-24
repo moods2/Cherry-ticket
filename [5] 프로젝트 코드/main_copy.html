@@ -245,11 +245,11 @@
 
             #tblpic {
                 width: 270px;
-                border-spacing: 10px;
+                border-spacing: 5px;
                 border-collapse: separate;
                 position: relative;
                 top: 10px;
-                left: 1110px;
+                left: 1073px;
                 display: inline-block;
             }
 
@@ -310,13 +310,14 @@
             #topmenu {
                 width: 100%;
                 height: 40px;
-                background: linear-gradient(90deg, #E25147 65.9%, #41495C 34.1%);
+                background: linear-gradient(90deg, #E25147 64.5%, #41495C 35.5%);
                 margin-top: 15px;
             }
             #topmenu > ul {
-                width: 1000px;
+                width: 965px;
                 height: 100%;
                 margin: 0 auto;
+                padding-left: 0;
             }
             #topmenu > ul li {
                 list-style-type: none;
@@ -338,7 +339,7 @@
                 height: 380px;
                 background-color: white;
                 position: absolute;
-                left: 373px;
+                left: 350px;
                 top: 170px;
                 display: none;
                 z-index: 5;
@@ -348,6 +349,40 @@
                 width: 35%;
                 height: 380px;
                 border: 1px solid #DDD;
+            }
+            .narrow {
+                width: 16.66%;
+                font-size: 8px;
+                height: 440px;
+            }
+            .narrow:last-child {
+                border-right: 0;
+            }
+            .narrow .depth_list {
+                margin: 20px 20px 0 20px;
+                height: 440px;
+                border-bottom: 0;
+            }
+            .narrow .depth_list div {
+                border-bottom: 1px solid #DDD;
+                height: 170px;
+            }
+            .narrow .depth_list div a {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 1px;
+            }
+            .narrow .depth_list div:last-child {
+                border: 0;
+                height: 240px;
+                padding-top: 20px;
+            }
+            .narrow .depth_list li a:first-child {
+                pointer-events: none;
+                color: #E25147;
+                cursor: default;
+                font-weight: bold;
+                margin-bottom: 3px;
             }
             .depth_title {
                 margin: 20px 20px 0px 20px;
@@ -382,6 +417,10 @@
             }
             .depth_list li a {
                 margin-right: 27px;
+                color: black;
+            }
+            .depth_list a:hover {
+                color: #E25147;
             }
             .suggest {
                 float: right;
@@ -432,18 +471,24 @@
                 padding-left: 40px;
             }
 
+            .submenu.type3 {
+                width: 975.5px;
+                height: 440px;
+            }
+
         </style>
     </head>
     <body>
         <div id="main">
             <!--------------------------- 화면 상단부 --------------------------->
+            <!-- 로그인 한줄 -->
             <div id="loginbar">
                 <div>
                     <a href="#!" id="login">로그인</a>
                 </div>
             </div>
             <div id="topsearch">
-                <!-- 상단메뉴 -->
+                <!-- 검색바 -->
                 <a href="main copy.html" id="topleft"></a>
                 <div id="mainsearch">
                     <div id="searchwrap">
@@ -461,9 +506,10 @@
                     </div>
                 </div>
             </div>
+            <!-- 상단 메뉴바 -->
             <div id="topmenu">
                 <ul>
-                    <li style="background-color: #D53B3B;">
+                    <li style="background-color: #D53B3B;" class="hamburger">
                     <i class="glyphicon glyphicon-align-justify"></i>
                     </li>
                     <li class="genre" data-genre="musical">뮤지컬</li>
@@ -490,7 +536,154 @@
                     <li class="bar"><span class="black">l</span></li>
                     <li class="genre" data-genre="stadium"><i class="glyphicon glyphicon-map-marker" style="font-size: 12px;"></i>공연장</li>
                 </ul>
-                <div class="submenu" id="musical">
+                <!-- 장르별 서브메뉴 -->
+                <div class="submenu type3" id="hamburger">
+                    <div class="subbody">
+                        <div class="depth narrow">
+                            <ul class="depth_list">
+                                <li>
+                                    <div>
+                                        <a href="#!">뮤지컬</a>
+                                        <a href="#!">오리지널/내한공연</a>
+                                        <a href="#!">라이선스</a>
+                                        <a href="#!">창작뮤지컬</a>
+                                        <a href="#!">넌버벌 퍼포먼스</a>
+                                        <a href="#!">패키지 공연</a>
+                                    </div>
+                                    <div>
+                                        <a href="#!">콘서트</a>
+                                        <a href="#!">발라드</a>
+                                        <a href="#!">락/메탈</a>
+                                        <a href="#!">랩/힙합</a>
+                                        <a href="#!">재즈/소울</a>
+                                        <a href="#!">디너쇼</a>
+                                        <a href="#!">포크/트로트</a>
+                                        <a href="#!">내한공연</a>
+                                        <a href="#!">페스티벌</a>
+                                        <a href="#!">팬클럽</a>
+                                        <a href="#!">인디</a>
+                                        <a href="#!">토크/강연</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="depth narrow">
+                            <ul class="depth_list">
+                                <li>
+                                    <div>
+                                        <a href="#!">연극</a>
+                                        <a href="#!">전체</a>
+                                        <a href="#!">패키지공연</a>
+                                        <a href="#!">주간랭킹순</a>
+                                    </div>
+                                    <div>
+                                        <a href="#!">클래식/무용</a>
+                                        <a href="#!">클래식</a>
+                                        <a href="#!">오페라</a>
+                                        <a href="#!">발레/무용</a>
+                                        <a href="#!">국악</a>
+                                        <a href="#!">주간랭킹순</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="depth narrow">
+                            <ul class="depth_list">
+                                <li>
+                                    <div>
+                                        <a href="#!">스포츠</a>
+                                        <a href="#!">야구</a>
+                                        <a href="#!">축구</a>
+                                        <a href="#!">농구</a>
+                                        <a href="#!">배구</a>
+                                        <a href="#!">E스포츠</a>
+                                        <a href="#!">MD샵</a>
+                                    </div>
+                                    <div>
+                                        <a href="#!">레저</a>
+                                        <a href="#!">제주도</a>
+                                        <a href="#!">테마/놀이/아쿠아</a>
+                                        <a href="#!">워터파크/스파</a>
+                                        <a href="#!">스키/눈썰매</a>
+                                        <a href="#!">캠핑/휴양림</a>
+                                        <a href="#!">선박/크루즈</a>
+                                        <a href="#!">골프</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="depth narrow">
+                            <ul class="depth_list">
+                                <li>
+                                    <div>
+                                        <a href="#!">전시/행사</a>
+                                        <a href="#!">전시</a>
+                                        <a href="#!">뮤지엄</a>
+                                        <a href="#!">아동체험전</a>
+                                        <a href="#!">행사/축제</a>
+                                        <a href="#!">주간랭킹순</a>
+                                    </div>
+                                    <div>
+                                        <a href="#!">아동/가족</a>
+                                        <a href="#!">뮤지컬</a>
+                                        <a href="#!">연극</a>
+                                        <a href="#!">클래식/무용</a>
+                                        <a href="#!">전시/행사</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="depth narrow">
+                            <ul class="depth_list">
+                                <li>
+                                    <div>
+                                        <a href="#!">TOPING</a>
+                                        <a href="#!">멤버십 소개</a>
+                                        <a href="#!">가입하기</a>
+                                        <a href="#!">나의 토핑</a>
+                                        <a href="#!">할인공연</a>
+                                        <a href="#!">선예매</a>
+                                        <a href="#!">클럽</a>
+                                        <a href="#!">토핑DAY</a>
+                                    </div>
+                                    <div>
+                                        <a href="#!">랭킹</a>
+                                        <a href="#!">뮤지컬</a>
+                                        <a href="#!">콘서트</a>
+                                        <a href="#!">연극</a>
+                                        <a href="#!">클래식/무용</a>
+                                        <a href="#!">아동/가족</a>
+                                        <a href="#!">전시/행사</a>
+                                        <a href="#!">스포츠</a>
+                                        <a href="#!">레저</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="depth narrow">
+                            <ul class="depth_list">
+                                <li>
+                                    <div>
+                                        <a href="#!">지역</a>
+                                        <a href="#!">지역별 주요공연</a>
+                                        <a href="#!">티켓오픈소식</a>
+                                        <a href="#!">지역별 핫이슈</a>
+                                    </div>
+                                    <div>
+                                        <a href="#!">프로모션</a>
+                                        <a href="#!">공연초대이벤트</a>
+                                        <a href="#!">공연경품이벤트</a>
+                                        <a href="#!">50%할인</a>
+                                        <a href="#!">지난 이벤트</a>
+                                        <a href="#!">당첨자발표</a>
+                                        <a href="#!">현대카드 M포인트</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="submenu type1" id="musical">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -546,7 +739,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewMusical_a333edff-71f6-4a73-a83c-4fd691d00013.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="concert">
+                <div class="submenu type1" id="concert">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -617,7 +810,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewConcert_8f6dc8f5-b0ff-4e22-a0d1-89e7ce580cdf.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="play" style="width: 723px; height: 380px;">
+                <div class="submenu type1" id="play" style="width: 723px; height: 380px;">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -668,7 +861,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewDrama_058a04e9-b5f8-4364-ba46-cd570eb01583.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="classic">
+                <div class="submenu type1" id="classic">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -728,7 +921,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewClassic_b695b186-d672-4f7a-a088-3d867acfc2d7.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="sports">
+                <div class="submenu type1" id="sports">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -794,7 +987,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202009/GnbMenuNew_GnbMenuNewSports_ac51c094-b96a-4d07-adf3-33fbd3781873.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="leisure">
+                <div class="submenu type1" id="leisure">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -863,7 +1056,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202005/GnbMenuNew_GnbMenuNewLeisure_bf655c14-f3a1-4599-80f8-9a971ab5f722.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="exhibition">
+                <div class="submenu type1" id="exhibition">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -923,7 +1116,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewDisplay_085c5935-8210-4024-9166-d18856b3526a.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="kid">
+                <div class="submenu type1" id="kid">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -983,7 +1176,7 @@
                         <div class="subbanner" style="background-image: url('http://ticketimage.interpark.com/TCMS4/Main/202008/GnbMenuNew_GnbMenuNewChild_9cf25751-95fb-4f1d-aaf9-b09cea0bb4ff.jpg');"></div>
                     </div>
                 </div>
-                <div class="submenu" id="toping">
+                <div class="submenu type1" id="toping">
                     <div class="subbody">
                         <div class="depth">
                             <div class="depth_title">
@@ -1244,6 +1437,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 상단 배경이미지 조작 -->
             <div id="top">
                 <div>
                     <table id="tblpic">
@@ -1275,11 +1470,11 @@
                     </table>
                 </div>
             </div>
-            <!-------------------------------- 내용부분 -------------------------------->
+            <!--------------------------- 내용부분 --------------------------->
             <div id="middle1">
                 <br />
                 <br />
-                <!-- 최신, 인기 공연 목록(순위별) -->
+                <!-- 공연 유투브 영상들 -->
                 <div style="text-align: center;">
                     <div style="padding: 10px 0;">
                         <div
@@ -1343,7 +1538,7 @@
             </div>
             <div id="middle2">
                 <hr />
-                <!-- 뮤지컬, 연극 목록 -->
+                <!-- 콘서트 목록 -->
                 <div style="text-align: center;">
                     <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
                         <span style="background: #fff; padding: 0 10px;">CONCERT</span>
@@ -1356,7 +1551,7 @@
                     </div>
                 </div>
                 <hr />
-                <!-- 콘서트, 클래식 목록 -->
+                <!-- 연극, 클래식 목록 -->
                 <div style="text-align: center;">
                     <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
                         <span style="background: #fff; padding: 0 10px;">PLAY & CLASSIC</span>
@@ -1369,7 +1564,7 @@
                     </div>
                 </div>
                 <hr />
-                <!-- 전시 목록 -->
+                <!-- 전시, 극장 목록 -->
                 <div style="text-align: center; margin-bottom: 30px;">
                     <h1 style="border-bottom: 1px solid #CCC; line-height: 0.1em;">
                         <span style="background: #fff; padding: 0 10px;">EXHIBITION & THEATER</span>
@@ -1383,15 +1578,15 @@
                 </div>
                 <hr />
             </div>
-            <!-------------------------------- 화면 하단부 -------------------------------->
+            <!--------------------------- 화면 하단부 --------------------------->
             <div id="bottom">
                 <div>
                     <!-- 회사 마크 -->
                     <img src="./images/cherry.jpg"/>
                 </div>
                 <div class="txt">
-                    <p class="black">At-Ticket (주)</p>
-                    <p>서울시 강남구 역삼동 한독빌딩 8층 대표: 한시연 | 개인정보보호책임자: 한시연</p>
+                    <p class="black">Cherry-Ticket (주)</p>
+                    <p>서울시 강남구 역삼동 한독빌딩 8층 대표: 한시연 | 개인정보보호책임자: 신승환</p>
                     <p>it1234@atticket.com 사업자등록번호 229-81-37000</p>
                     <p class="black">Copyright &copy; At-Tickey Corp. All Rights Reserved.</p>
                 </div>
@@ -1412,6 +1607,7 @@
                 location.href = "#!";
             });
 
+            //상단 배경화면 이미지 조작
             $("#tblpic td").click(function() {
                 console.log($(this).css("background-image"));
                 $("#tblpic td").css("border", "1px solid #EEE");
@@ -1419,31 +1615,53 @@
                 $(this).css("border", "3px solid tomato");
             });
 
+            //유투브 영상부분 버튼 조작
             $("#playlist ul li").mouseover(function() {
                 $("#playlist ul li").css("background-color", "#505769").css("color", "white");
                 $(this).css("background-color", "#596071").css("color", "#85BBF2");
             });
-
             $("#playlist ul li").click(function() {
                 //console.log($(this).data("url"));
                 $("#iframe").attr("src", $(this).data("url"));
             });
 
-            $(".genre").mouseover(function() {
-                console.log($(this).data("genre"));
-                $(".submenu").css("display", "none");
-                $("#" + $(this).data("genre")).css("display", "block");
+
+
+            //상단 메뉴바 조작
+            $(document).ready(function() {
+                $(".genre").mouseover(function() {
+                    console.log($(this).data("genre"));
+                    if ($("#hamburger").css("display") == "none") {
+                        $(".submenu.type1, .submenu.type2").css("display", "none");
+                        $("#" + $(this).data("genre")).css("display", "block");
+                    }
+                });
+                $(".genre").mouseout(function() {
+                    if ($("#hamburger").css("display") == "none") {
+                        $(".submenu.type1, .submenu.type2").css("display", "none");
+                    }
+                });
+                $(".submenu").mouseover(function() {
+                    if ($("#hamburger").css("display") == "none") {
+                        $(this).css("display", "block");
+                    }
+                });
+                $(".submenu").mouseout(function() {                    
+                    if ($("#hamburger").css("display") == "none") {
+                        $(".submenu.type1, .submenu.type2").css("display", "none");
+                    }
+                });
             });
-            $(".genre").mouseout(function() {
-                $(".submenu").css("display", "none");
+            $(".hamburger").click(function() {
+                if ($("#hamburger").css("display") == "none") {
+                    $("#hamburger").css("display", "block");
+                    
+                } else if ($("#hamburger").css("display") == "block") {
+                    $("#hamburger").css("display", "none");
+                }
             });
 
-            $(".submenu").mouseover(function() {
-                $(this).css("display", "block");
-            });
-            $(".submenu").mouseout(function() {
-                $(".submenu").css("display", "none");
-            });
+            
 
         </script>
     </body>
