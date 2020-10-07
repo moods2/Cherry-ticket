@@ -8,6 +8,18 @@
 		select seq,name,address from tblmybatisTest
 	</select>
 	
+	<select id="rank" resultType="com.test.spring.RankDTO">
+		select b.*
+		from (select rownum as rank, a.*
+		from (select seq, title, round((cnt/(select count(b.cnt)
+		from tblShow s inner join tblRoundInfo r on s.seq = r.showSeq
+		inner join tblBooking b on r.seq = b.roundSeq
+		where s.delflag = 0 and r.delflag = 0 and b.delflag = 0 and b.bookdate = '2020/08/28')*10),2) as rate,
+		to_char(startdate,'yyyy/mm/dd') as startDate, to_char(enddate,'yyyy/mm/dd') as endDate,
+		hall, theater, poster
+		from vwRank) a) b
+		where rank >= 1 and rank <= 10
+	</select>
 		
 	
 </mapper>
